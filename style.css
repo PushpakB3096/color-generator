@@ -47,3 +47,7 @@ header {
 .color_code {
   text-transform: uppercase;
 }
+
+.color_copy {
+  cursor: pointer;
+}
