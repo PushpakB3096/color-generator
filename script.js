@@ -78,6 +78,7 @@ function populateCards() {
     // creating copy icons
     const copyIcon = document.createElement("i");
     copyIcon.className = "far fa-copy";
+
     // copy color code to clipboard
     copyIcon.addEventListener("click", () => {
       /* 
@@ -90,10 +91,21 @@ function populateCards() {
 
       tempInput.select();
       document.execCommand("Copy");
-
       tempInput.remove();
     });
 
+    const copyMsg = document.createElement("span");
+    copyMsg.className = "copy_msg";
+    copyMsg.textContent = "Copy to Clipboard";
+
+    colorCopy.addEventListener("mouseenter", () => {
+      copyMsg.style.visibility = "visible";
+    });
+    colorCopy.addEventListener("mouseleave", () => {
+      copyMsg.style.visibility = "hidden";
+    });
+
+    colorCopy.appendChild(copyMsg);
     colorCopy.appendChild(copyIcon);
     cardContent.appendChild(colorCode);
     cardContent.appendChild(colorCopy);
