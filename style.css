@@ -1,11 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Kite+One&family=Lato&display=swap");
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-size: 1.2em;
   background-color: #fdfaf6;
+}
+
+header {
+  font-size: 1.5em;
+  font-family: "Lato", sans-serif;
+}
+
+.cards {
+  font-family: "Kite One", sans-serif;
 }
 
 .container {
