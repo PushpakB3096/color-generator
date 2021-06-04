@@ -2,25 +2,30 @@ let colors = [];
 
 const cardsEl = document.querySelector(".cards");
 
-function generateRandomColor() {
+function generateRandomColors(num) {
   let colorCode = "";
+  let times = 1;
 
-  // generating a 6-digit hexadecimal code
-  for (let i = 0; i < 6; i++) {
-    // generating a random number between 0 and 15
-    let code = Math.floor(Math.random() * 16);
-    // if the number is 9 or below, add it directly
-    if (code <= 9) {
-      colorCode += code;
-    } else {
-      // if the number is more than 9, get the hexcode and add it
-      let hexCode = getHexCode(code);
-      if (hexCode) colorCode += hexCode;
+  while (times <= num) {
+    // generating a 6-digit hexadecimal code
+    for (let i = 0; i < 6; i++) {
+      // generating a random number between 0 and 15
+      let code = Math.floor(Math.random() * 16);
+      // if the number is 9 or below, add it directly
+      if (code <= 9) {
+        colorCode += code;
+      } else {
+        // if the number is more than 9, get the hexcode and add it
+        let hexCode = getHexCode(code);
+        if (hexCode) colorCode += hexCode;
+      }
     }
-  }
-  // push the generated random color to the main array if it already doesn't exist
-  if (!colors.includes(colorCode)) {
-    colors.push(colorCode);
+    // push the generated random color to the main array if it already doesn't exist
+    if (!colors.includes(colorCode)) {
+      colors.push(colorCode);
+      colorCode = "";
+    }
+    times++;
   }
 }
 
@@ -45,6 +50,8 @@ function getHexCode(code) {
 }
 
 function populateCards() {
+  // reset the cards
+  cardsEl.innerHTML = "";
   colors.forEach(color => {
     // create card element for each color
     const card = document.createElement("div");
@@ -83,14 +90,23 @@ function populateCards() {
   });
 }
 
-// TODO: call automatically a certain number of times
-generateRandomColor();
-generateRandomColor();
-generateRandomColor();
-generateRandomColor();
-generateRandomColor();
-generateRandomColor();
-generateRandomColor();
-generateRandomColor();
+window.addEventListener("scroll", () => {
+  // how much the user has already scrolled down
+  let scrollY = window.scrollY;
+  // how much screen is visible currently
+  let innerHeight = window.innerHeight;
+  // height of the document
+  let scrollHeight = document.documentElement.scrollHeight;
 
+  // if whatver is on the screen + however much we have scrolled is greater than the document height, then we have scrolled till the end of the page
+  if (scrollY + innerHeight >= scrollHeight) {
+    // generate 10 more colors and re-populate the cards
+    generateRandomColors(10);
+    populateCards();
+  }
+});
+
+// generate 18 random colors on page load
+generateRandomColors(18);
+// populate the cards based on the generated colors
 populateCards();
