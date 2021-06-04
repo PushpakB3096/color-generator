@@ -18,8 +18,10 @@ function generateRandomColor() {
       if (hexCode) colorCode += hexCode;
     }
   }
-  // push the generated random color to the main array
-  colors.push(colorCode);
+  // push the generated random color to the main array if it already doesn't exist
+  if (!colors.includes(colorCode)) {
+    colors.push(colorCode);
+  }
 }
 
 // this function will return a hexcode corresponding to a code
@@ -90,4 +92,5 @@ generateRandomColor();
 generateRandomColor();
 generateRandomColor();
 generateRandomColor();
+
 populateCards();
