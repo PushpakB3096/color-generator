@@ -98,8 +98,10 @@ window.addEventListener("scroll", () => {
   // height of the document
   let scrollHeight = document.documentElement.scrollHeight;
 
-  // if whatver is on the screen + however much we have scrolled is greater than the document height, then we have scrolled till the end of the page
-  if (scrollY + innerHeight >= scrollHeight) {
+  /* 
+  if whatver is on the screen + however much we have scrolled is greater than 90% of the document height, then we have almost scrolled till the end of the page
+  */
+  if (scrollY + innerHeight >= 0.9 * scrollHeight) {
     // generate 10 more colors and re-populate the cards
     generateRandomColors(10);
     populateCards();
