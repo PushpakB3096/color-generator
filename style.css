@@ -14,12 +14,32 @@ header {
   font-family: "Lato", sans-serif;
 }
 
-.cards {
-  font-family: "Kite One", sans-serif;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.cards {
+  font-family: "Kite One", sans-serif;
+  /* border: 1px solid green; */
+}
+
+.card {
+  border: 1px solid black;
+  width: 250px;
+  height: 200px;
+}
+
+.card_color {
+  /* border: 1px solid red; */
+  /* background-color: aquamarine; */
+  height: 80%;
+}
+
+.card_content {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 8px;
+  font-size: 18px;
 }
