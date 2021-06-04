@@ -37,14 +37,14 @@ header {
 }
 
 .card_color {
-  background-color: aquamarine;
+  background-color: #e4efe7;
   height: 80%;
 }
 
 .card_content {
   display: flex;
   justify-content: space-between;
-  padding: 4px 8px;
+  padding: 12px;
   font-size: 18px;
 }
 
