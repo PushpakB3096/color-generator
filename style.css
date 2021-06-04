@@ -12,6 +12,7 @@ body {
 header {
   font-size: 1.7em;
   font-family: "Lato", sans-serif;
+  margin-top: 12px;
 }
 
 .container {
@@ -54,4 +55,5 @@ header {
 
 .color_copy {
   cursor: pointer;
+  font-size: 1.1em;
 }
