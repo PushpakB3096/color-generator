@@ -51,6 +51,7 @@ header {
 
 .color_code {
   text-transform: uppercase;
+  user-select: none;
 }
 
 .color_copy {

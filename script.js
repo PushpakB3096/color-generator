@@ -1,6 +1,6 @@
-let colors = [];
-
 const cardsEl = document.querySelector(".cards");
+
+let colors = [];
 
 function generateRandomColors(num) {
   let colorCode = "";
@@ -78,6 +78,21 @@ function populateCards() {
     // creating copy icons
     const copyIcon = document.createElement("i");
     copyIcon.className = "far fa-copy";
+    // copy color code to clipboard
+    copyIcon.addEventListener("click", () => {
+      /* 
+            select() function is available only to input/textarea elements. Hence, temporary creating an input with the value of the color code. select() function will select the value of the input and the execCommand('copy') will copy that selection. After it is copied, we are removing the input field from the DOM.    
+        */
+      const tempInput = document.createElement("input");
+      // coverting the hexcode color code to uppercase
+      tempInput.value = `#${color}`.toUpperCase();
+      document.body.appendChild(tempInput);
+
+      tempInput.select();
+      document.execCommand("Copy");
+
+      tempInput.remove();
+    });
 
     colorCopy.appendChild(copyIcon);
     cardContent.appendChild(colorCode);
