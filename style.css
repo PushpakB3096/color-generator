@@ -25,7 +25,7 @@ header {
   font-family: "Kite One", sans-serif;
   margin-top: 50px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 2em;
   grid-auto-rows: minmax(265px, auto);
 }

@@ -81,5 +81,13 @@ function populateCards() {
   });
 }
 
+// TODO: call automatically a certain number of times
+generateRandomColor();
+generateRandomColor();
+generateRandomColor();
+generateRandomColor();
+generateRandomColor();
+generateRandomColor();
+generateRandomColor();
 generateRandomColor();
 populateCards();
