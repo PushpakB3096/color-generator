@@ -1,6 +1,46 @@
-let colors = ["f2f4c3", "f98404", "ffffc7", "4ca1a3", "b6c9f0", "e4bad4"];
+let colors = [];
 
 const cardsEl = document.querySelector(".cards");
+
+function generateRandomColor() {
+  let colorCode = "";
+
+  // generating a 6-digit hexadecimal code
+  for (let i = 0; i < 6; i++) {
+    // generating a random number between 0 and 15
+    let code = Math.floor(Math.random() * 16);
+    // if the number is 9 or below, add it directly
+    if (code <= 9) {
+      colorCode += code;
+    } else {
+      // if the number is more than 9, get the hexcode and add it
+      let hexCode = getHexCode(code);
+      if (hexCode) colorCode += hexCode;
+    }
+  }
+  // push the generated random color to the main array
+  colors.push(colorCode);
+}
+
+// this function will return a hexcode corresponding to a code
+function getHexCode(code) {
+  switch (code) {
+    case 10:
+      return "a";
+    case 11:
+      return "b";
+    case 12:
+      return "c";
+    case 13:
+      return "d";
+    case 14:
+      return "e";
+    case 15:
+      return "f";
+    default:
+      return;
+  }
+}
 
 function populateCards() {
   colors.forEach(color => {
@@ -41,4 +81,5 @@ function populateCards() {
   });
 }
 
+generateRandomColor();
 populateCards();
