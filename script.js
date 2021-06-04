@@ -95,6 +95,7 @@ function populateCards() {
 
       tempInput.select();
       document.execCommand("Copy");
+      // change the tooltip message to indicate that copying is done
       copyMsg.textContent = "Copied!";
 
       tempInput.remove();
@@ -105,6 +106,7 @@ function populateCards() {
     });
     colorCopy.addEventListener("mouseleave", () => {
       copyMsg.style.visibility = "hidden";
+      // when the user moves away from the button, change text back to default
       copyMsg.textContent = "Copy to Clipboard!";
     });
 
